@@ -17,6 +17,12 @@
         android:theme="@style/Theme.KotlinTestApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ItemInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AuthActivity"
             android:exported="false" />
         <activity

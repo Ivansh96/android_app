@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.shavshin.kotlintestapplication.db.DbConnector
-import ru.shavshin.kotlintestapplication.model.User
 
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,15 +42,17 @@ class AuthActivity : AppCompatActivity() {
             } else {
                 val dbConnector = DbConnector(this, null)
                 val isAuth = dbConnector.getUser(login, pass)
+
                 if (isAuth) {
                     Toast.makeText(this, "User $login authorized", Toast.LENGTH_LONG).show()
                     userLogin.text.clear()
                     userPass.text.clear()
+
+                    val linkPage = Intent(this, ItemsActivity::class.java)
+                    startActivity(linkPage)
                 } else {
                     Toast.makeText(this, "User $login not authorized", Toast.LENGTH_LONG).show()
                 }
-
-
             }
         }
     }
